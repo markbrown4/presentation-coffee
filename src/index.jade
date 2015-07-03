@@ -1,0 +1,364 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title In memory of CoffeeScript
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section
+        h1
+          | In loving memory of 
+          strong CoffeeScript
+
+      section.bg( style="background-image: url(images/logo.png)")
+        h1 In the beginning..
+
+      section.pad-sm
+        h2.offset-2 A brief history of time
+        ul.timeline.flex
+          li.flex-1
+            .year 1999
+            .subject.logo.years-2 Logo
+            .event Year 8
+          li.flex-1
+            .year 2000
+            .subject.html.years-12.offset-1.join-right HTML
+          li.flex-1
+            .year 2001
+            .subject.years-1.vb Basic
+          li.flex-1
+            .year 2002
+            .subject.flash.years-3 Flash
+          li.flex-1
+            .year 2003
+          li.flex-1
+            .year 2004
+            .event Uni
+            .release Gmail
+            .subject.css.years-8.offset-2.join-right CSS
+            .subject.sql.years-7.offset-5 SQL
+            .subject.java.years-2.offset-6 Java
+          li.flex-1
+            .year 2005
+            .release Maps
+            .subject.asp.years-1 ASP.NET
+            .subject.php.years-5.offset-4 PHP
+            .subject.js.years-7.offset-3.join-right JS
+          li.flex-1
+            .year 2006
+            .event Swinburne
+            .release jQuery
+          li.flex-1
+            .year 2007
+            .subject.c.offset-6 c++
+            .subject.assembly.offset-7 Asm
+            .release iPhone
+          li.flex-1
+            .year 2008
+            .subject.asp.years-2 ASP.NET
+            .event PageUp
+          li.flex-1
+            .year 2009
+            .subject.svg.years-7.offset-6 SVG
+            .release Node
+          li.flex-1
+            .year 2010
+          li.flex-1
+            .year 2011
+            .release Chrome
+            .subject.ruby.years-5.offset-4 Ruby
+          li.flex-1
+            .year 2012
+            .subject.html.years-4.offset-1.join-left HAML
+            .subject.css.years-4.offset-2.join-left SCSS
+            .subject.js.years-4.offset-3.join-left Coffee
+            .event Inspire9
+          li.flex-1
+            .year 2013
+          li.flex-1
+            .year 2014
+            .subject.python Python
+            .event Adioso
+          li.flex-1
+            .year 2015
+
+      section
+        h1 Notable languages
+        ul.languages
+          li
+            .subject.logo Logo
+          li
+            .subject.html HTML
+            .subject.html HAML
+          li
+            .subject.css CSS
+            .subject.css SCSS
+          li
+            .subject.js JS
+            .subject.js Coffee
+          li
+            .subject.flash Flash
+          li
+            .subject.svg SVG
+          li
+            .subject.php PHP
+          li
+            .subject.ruby Ruby
+          li
+            .subject.python Python
+          
+      section.bg( style="background-image: url(images/sam.jpg)")
+        .pad-lg
+          h1 Better JS with CoffeeScript
+          p
+            | A better title might be CoffeeScript is beautiful
+            br
+            | and I never want to write plain JavaScript again
+
+      section.bg( style="background-image: url(images/jeremy.jpg)")
+        .pad-sm
+          p
+            | CoffeeScript is a little language that compiles into JavaScript.
+            br
+            | Underneath that awkward Java-esque patina, JavaScript has always had a gorgeous heart.
+            br
+            | CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.
+
+      section
+        h1
+          strong a lot 
+          | is in es6
+
+      section
+        h2 Bound functions
+        pre
+          code.language-javascript.
+            square = (x)=> x + x
+
+      section
+        h2 Classes
+        pre
+          code.language-javascript.
+            class Animal {
+              constructor(name) {
+                this.name = name;
+              }
+              move(meters) {
+                this.distance += meters;
+              }
+            }
+            class Snake extends Animal {
+              move() {
+                alert("Slithering...");
+                super(5);
+              }
+            }
+      section
+        h2 Classes
+        pre
+          code.language-javascript.
+            class Animal
+              constructor: (@name)->
+
+
+              move: (meters)->
+                @distance += meters
+          
+          
+            class Snake extends Animal
+              move: ->
+                alert "Slithering..."
+                super 5
+
+      section
+        h2 Rest params
+        pre
+          code.language-javascript.
+            store.add = (category, ...items)=> {
+              items.forEach((item)=> {
+                store.aisle[category].push(item);
+              });
+            };
+    
+      section
+        h2 Rest params
+        pre
+          code.language-javascript.
+            store.add = (category, items...)->
+              items.forEach (item)->
+                store.aisle[category].push item
+                
+
+      section
+        h2 Strings
+        pre
+          code.language-javascript.
+            var hello = (name)=> `hello ${name}`
+            var multiline = ()=> {
+             return `a
+            b
+            c`;
+            }
+            
+    
+      section
+        h2 Strings
+        pre
+          code.language-javascript.
+            hello = (name)=> "hello \#{name}"
+            multiline = ->
+              """
+                a
+                b
+                c
+              """
+      section
+        h2 Destructuring assignment
+        pre
+          code.language-javascript.
+            [a, b] = [1, 2]
+            {a, b} = {a:1, b:2}
+            { AppStore } = App.Stores
+      
+      section
+        h2
+          | There's 
+          strong a lot 
+          | I'll miss
+
+      section
+        h2 No var
+        pre
+          code.language-javascript.
+            myVariable = 'myValue'
+            
+            // missing var
+            // hoisting
+            // private by default
+
+      section
+        h2 Significant whitespace
+        pre
+          code.language-javascript.
+            if (url) {
+              fetch(url, (data)=> {
+                console.log(data);
+              });
+            }
+            else {
+              nope();
+            }
+
+            data = {
+              url: '/api/data.json',
+              properties: ['a','b'],
+              params: {
+                query: 'Ma'
+              }
+            };
+
+      section
+        h2 Significant whitespace
+        pre
+          code.language-javascript.
+            if url
+              fetch url, (data)->
+                console.log data
+            else
+              nope()
+
+
+
+
+            data =
+              url: '/api/data.json'
+              properties: ['a','b']
+              params:
+                query: 'Ma'
+            
+
+      section
+        h2 Simple loops
+        pre
+          code.language-javascript.
+            // for (var i=0, l=arr.length; i < l; i++) {}
+
+            words = 'Peter Piper picked a peck'.split ' '
+
+            for word, index in words
+              console.log "\#{index} \#{word}"
+
+            options =
+              strict: true
+              evalute: false
+              magic: 'string'
+
+            for key, value of options
+             console.log "\#{key} \#{value}"
+    
+      section
+        h2 Automatic returns
+        pre
+          code.language-javascript.
+            singHappy = ->
+              if happy
+                clapAlong()
+              else
+                dont()
+      section
+        h2 Everything is an expression
+        pre
+          code.language-javascript.
+            prefixed = for word in words
+              "\#{prefix} \#{word}"
+
+            greeting = switch day
+              when 'monday' then 'piss off'
+              when 'sunday' then 'how do you do'
+              else 'hello'
+
+      section
+        h2 Aliases / operators
+        pre
+          code.language-javascript.
+            == -> ===
+            && -> and
+            || -> or
+            ? : ; -> if then else
+            this. -> @
+            .prototype. -> ::
+
+            if myVariable? // not null or undefined
+            if params?.query? // soak operator
+    
+      section.yellow-bg
+        p.pad-lg "We are stuck with JavaScript, we can’t change the language syntax in backwards incompatible ways if we want to write applications that run everywhere."
+
+      section.yellow-bg
+        p
+          img(src="/images/babel.svg" width="500", alt: 'Babel')
+      
+      section
+        h1 End of life?
+        ul.languages
+          li
+            .subject.js JS
+            .subject.js Coffee
+            .subject.js JSNext
+        p I am not yet convinced
+
+      section
+        h1 Community
+      
+      section
+        h1 Thanks!
+        
+        p @markbrown4
+        
+
+    script(src='build/build.js')
