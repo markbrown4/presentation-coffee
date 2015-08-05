@@ -33,7 +33,7 @@ html
             .subject.years-1.vb Basic
           li.flex-1
             .year 2002
-            .subject.flash.years-3 Flash
+            .subject.flash.years-3 ActionScript
           li.flex-1
             .year 2003
           li.flex-1
@@ -60,7 +60,7 @@ html
             .release iPhone
           li.flex-1
             .year 2008
-            .subject.asp.years-2 ASP.NET
+            .subject.asp.years-2 C#
             .event PageUp
           li.flex-1
             .year 2009
@@ -102,7 +102,7 @@ html
             .subject.js JS
             .subject.js Coffee
           li
-            .subject.flash Flash
+            .subject.flash ActionScript
           li
             .subject.svg SVG
           li
@@ -111,14 +111,24 @@ html
             .subject.ruby Ruby
           li
             .subject.python Python
-          
+      
+      section.text-center
+        .pad-lg
+          h1 Fun facts
+          p
+            img(src='images/coffeescript-logo.png' width='225')
+            br
+            img(src='images/pow-logo.png' width='122')
+            br
+            img(src='images/atom-logo.png' width='145')
+
       section.bg( style="background-image: url(images/sam.jpg)")
         .pad-lg
           h1 Better JS with CoffeeScript
           p
-            | A better title might be CoffeeScript is beautiful
+            | "A better title might be CoffeeScript is beautiful
             br
-            | and I never want to write plain JavaScript again
+            | and I never want to write plain JavaScript again"
 
       section.bg( style="background-image: url(images/jeremy.jpg)")
         .pad-sm
@@ -138,7 +148,23 @@ html
         h2 Bound functions
         pre
           code.language-javascript.
-            square = (x)=> x + x
+            var square = (x)=> x + x
+
+      section
+        h2 Default params
+        pre
+          code.language-javascript.
+            var fill = (container, liquid="coffee")=> {
+              console.log("Filling the \#{container} with \#{liquid}...")
+            }
+
+      section
+        h2 Destructuring assignment
+        pre
+          code.language-javascript.
+            [a, b] = [1, 2]
+            {a, b} = {a:1, b:2}
+            { AppStore } = App.Stores
 
       section
         h2 Classes
@@ -174,7 +200,8 @@ html
               move: ->
                 alert "Slithering..."
                 super 5
-
+            
+            
       section
         h2 Rest params
         pre
@@ -213,18 +240,10 @@ html
             hello = (name)=> "hello \#{name}"
             multiline = ->
               """
-                a
-                b
-                c
+              a
+              b
+              c
               """
-      section
-        h2 Destructuring assignment
-        pre
-          code.language-javascript.
-            [a, b] = [1, 2]
-            {a, b} = {a:1, b:2}
-            { AppStore } = App.Stores
-      
       section
         h2
           | There's 
@@ -237,9 +256,10 @@ html
           code.language-javascript.
             myVariable = 'myValue'
             
-            // missing var
+            // never miss a var
             // hoisting
             // private by default
+            // JSLint compliant
 
       section
         h2 Significant whitespace
@@ -286,21 +306,48 @@ html
         h2 Simple loops
         pre
           code.language-javascript.
-            // for (var i=0, l=arr.length; i < l; i++) {}
-
             words = 'Peter Piper picked a peck'.split ' '
-
+            
             for word, index in words
               console.log "\#{index} \#{word}"
 
+      section
+        h2 Simple loops
+        pre
+          code.language-javascript.
+            var words = 'Peter Piper picked a peck'.split(' ');
+            
+            for (var index = 0, len = words.length; index < len; index++) {
+              var word = words[index];
+              console.log("\#{index} \#{word}");
+            }
+
+      section
+        h2 Simple loops
+        pre
+          code.language-javascript.
             options =
               strict: true
-              evalute: false
               magic: 'string'
 
             for key, value of options
-             console.log "\#{key} \#{value}"
-    
+              console.log "\#{key} \#{value}"
+
+      section
+        h2 Simple loops
+        pre
+          code.language-javascript.
+            var options = {
+              strict: true,
+              magic: 'string'
+            };
+
+            for (key in options) {
+              var value = options[key];
+              console.log(key + " " + value);
+            }
+
+
       section
         h2 Automatic returns
         pre
@@ -314,13 +361,17 @@ html
         h2 Everything is an expression
         pre
           code.language-javascript.
+            // each, map, filter
             prefixed = for word in words
               "\#{prefix} \#{word}"
 
             greeting = switch day
-              when 'monday' then 'piss off'
-              when 'sunday' then 'how do you do'
-              else 'hello'
+              when 'monday'
+                'piss off'
+              when 'sunday'
+                'how do you do'
+              else
+                'hello'
 
       section
         h2 Aliases / operators
@@ -330,19 +381,20 @@ html
             && -> and
             || -> or
             ? : ; -> if then else
+            start < date < end -> (start < date && date < end)
             this. -> @
             .prototype. -> ::
 
             if myVariable? // not null or undefined
             if params?.query? // soak operator
-    
+
       section.yellow-bg
         p.pad-lg "We are stuck with JavaScript, we can’t change the language syntax in backwards incompatible ways if we want to write applications that run everywhere."
 
       section.yellow-bg
         p
           img(src="images/babel.svg" width="500", alt: 'Babel')
-      
+
       section
         h1 End of life?
         ul.languages
@@ -350,15 +402,16 @@ html
             .subject.js JS
             .subject.js Coffee
             .subject.js JSNext
-        p I am not yet convinced
+
+      section.yellow-bg
+        h1 Community
+        h2 Syntax
+        p Features
 
       section
-        h1 Community
-      
-      section
-        h1 Thanks!
-        
+        h1 Thanks
         p @markbrown4
-        
+        img(src="images/i9dev-logo.svg" width="150")
+
 
     script(src='build/build.js')
