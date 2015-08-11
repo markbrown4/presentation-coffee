@@ -32,7 +32,7 @@
           </li>
           <li class="flex-1">
             <div class="year">2002</div>
-            <div class="subject flash years-3">Flash</div>
+            <div class="subject flash years-3">ActionScript</div>
           </li>
           <li class="flex-1">
             <div class="year">2003</div>
@@ -65,7 +65,7 @@
           </li>
           <li class="flex-1">
             <div class="year">2008</div>
-            <div class="subject asp years-2">ASP.NET</div>
+            <div class="subject asp years-2">C#</div>
             <div class="event">PageUp</div>
           </li>
           <li class="flex-1">
@@ -101,45 +101,16 @@
           </li>
         </ul>
       </section>
-      <section>
-        <h1>Notable languages</h1>
-        <ul class="languages">
-          <li>
-            <div class="subject logo">Logo</div>
-          </li>
-          <li>
-            <div class="subject html">HTML</div>
-            <div class="subject html">HAML</div>
-          </li>
-          <li>
-            <div class="subject css">CSS</div>
-            <div class="subject css">SCSS</div>
-          </li>
-          <li>
-            <div class="subject js">JS</div>
-            <div class="subject js">Coffee</div>
-          </li>
-          <li>
-            <div class="subject flash">Flash</div>
-          </li>
-          <li>
-            <div class="subject svg">SVG</div>
-          </li>
-          <li>
-            <div class="subject php">PHP</div>
-          </li>
-          <li>
-            <div class="subject ruby">Ruby</div>
-          </li>
-          <li>
-            <div class="subject python">Python</div>
-          </li>
-        </ul>
+      <section class="text-center">
+        <div class="pad-lg">
+          <h1>Fun facts</h1>
+          <p><img src="images/coffeescript-logo.png" width="225"><br><img src="images/pow-logo.png" width="122"><br><img src="images/atom-logo.png" width="145"></p>
+        </div>
       </section>
       <section style="background-image: url(images/sam.jpg)" class="bg">
         <div class="pad-lg">
           <h1>Better JS with CoffeeScript</h1>
-          <p>A better title might be CoffeeScript is beautiful<br>and I never want to write plain JavaScript again</p>
+          <p>"A better title might be CoffeeScript is beautiful<br>and I never want to write plain JavaScript again"</p>
         </div>
       </section>
       <section style="background-image: url(images/jeremy.jpg)" class="bg">
@@ -152,7 +123,21 @@
       </section>
       <section>
         <h2>Bound functions</h2>
-        <pre><code class="language-javascript">square = (x)=> x + x
+        <pre><code class="language-javascript">var square = (x)=> x + x
+</code></pre>
+      </section>
+      <section>
+        <h2>Default params</h2>
+        <pre><code class="language-javascript">var fill = (container, liquid="coffee")=> {
+  console.log("Filling the #{container} with #{liquid}...")
+}
+</code></pre>
+      </section>
+      <section>
+        <h2>Destructuring assignment</h2>
+        <pre><code class="language-javascript">[a, b] = [1, 2]
+{a, b} = {a:1, b:2}
+{ AppStore } = App.Stores
 </code></pre>
       </section>
       <section>
@@ -186,6 +171,7 @@ class Snake extends Animal
   move: ->
     alert "Slithering..."
     super 5
+    
     </code></pre>
       </section>
       <section>
@@ -199,14 +185,14 @@ class Snake extends Animal
       </section>
       <section>
         <h2>Rest params</h2>
-        <pre><code class="language-javascript">store.add = (category, items...)->
+        <pre><code class="language-coffeescript">store.add = (category, items...)->
   items.forEach (item)->
     store.aisle[category].push item
     
     </code></pre>
       </section>
       <section>
-        <h2>Strings</h2>
+        <h2>Template strings</h2>
         <pre><code class="language-javascript">var hello = (name)=> `hello ${name}`
 var multiline = ()=> {
  return `a
@@ -217,32 +203,27 @@ c`;
 </code></pre>
       </section>
       <section>
-        <h2>Strings</h2>
+        <h2>Template strings</h2>
         <pre><code class="language-javascript">hello = (name)=> "hello #{name}"
 multiline = ->
   """
-    a
-    b
-    c
-  """</code></pre>
-      </section>
-      <section>
-        <h2>Destructuring assignment</h2>
-        <pre><code class="language-javascript">[a, b] = [1, 2]
-{a, b} = {a:1, b:2}
-{ AppStore } = App.Stores
-</code></pre>
+  a
+  b
+  c
+  """
+  </code></pre>
       </section>
       <section>
         <h2>There's <strong>a lot </strong>I'll miss</h2>
       </section>
       <section>
         <h2>No var</h2>
-        <pre><code class="language-javascript">myVariable = 'myValue'
+        <pre><code class="language-coffeescript">myVariable = 'myValue'
 
-// missing var
-// hoisting
-// private by default
+# never miss a var
+# hoisting
+# private by default
+# JSLint compliant
 </code></pre>
       </section>
       <section>
@@ -267,7 +248,7 @@ data = {
       </section>
       <section>
         <h2>Significant whitespace</h2>
-        <pre><code class="language-javascript">if url
+        <pre><code class="language-coffeescript">if url
   fetch url, (data)->
     console.log data
 else
@@ -286,25 +267,51 @@ data =
       </section>
       <section>
         <h2>Simple loops</h2>
-        <pre><code class="language-javascript">// for (var i=0, l=arr.length; i < l; i++) {}
-
-words = 'Peter Piper picked a peck'.split ' '
+        <pre><code class="language-coffeescript">words = 'Peter Piper picked a peck'.split ' '
 
 for word, index in words
   console.log "#{index} #{word}"
   
-options =
+  </code></pre>
+      </section>
+      <section>
+        <h2>Simple loops</h2>
+        <pre><code class="language-javascript">var words = 'Peter Piper picked a peck'.split(' ');
+
+for (var index = 0, len = words.length; index < len; index++) {
+  var word = words[index];
+  console.log("#{index} #{word}");
+}
+</code></pre>
+      </section>
+      <section>
+        <h2>Simple loops</h2>
+        <pre><code class="language-coffeescript">options =
   strict: true
-  evalute: false
   magic: 'string'
   
+  
 for key, value of options
- console.log "#{key} #{value}"
- </code></pre>
+  console.log "#{key} #{value}"
+  
+  </code></pre>
+      </section>
+      <section>
+        <h2>Simple loops</h2>
+        <pre><code class="language-javascript">var options = {
+  strict: true,
+  magic: 'string'
+};
+
+for (key in options) {
+  var value = options[key];
+  console.log(key + " " + value);
+}
+</code></pre>
       </section>
       <section>
         <h2>Automatic returns</h2>
-        <pre><code class="language-javascript">singHappy = ->
+        <pre><code class="language-coffeescript">singHappy = ->
   if happy
     clapAlong()
   else
@@ -312,14 +319,37 @@ for key, value of options
       </section>
       <section>
         <h2>Everything is an expression</h2>
-        <pre><code class="language-javascript">prefixed = for word in words
+        <pre><code class="language-coffeescript"># each
+for word in words
+  console.log "#{prefix} #{word}"
+  
+# map
+prefixed = for word in words
   "#{prefix} #{word}"
   
-greeting = switch day
+# map + filter
+fWords = for word in words when word[0] == 'f'
+  "#{prefix} #{word}"
+  </code></pre>
+      </section>
+      <section>
+        <h2>Everything is an expression</h2>
+        <pre><code class="language-coffeescript">greeting = switch day
   when 'monday' then 'piss off'
   when 'sunday' then 'how do you do'
   else 'hello'
-  </code></pre>
+  
+getGreeting = (day)->
+  switch day
+    when 'monday' then 'piss off'
+    when 'sunday' then 'how do you do'
+    else 'hello'</code></pre>
+      </section>
+      <section>
+        <h2>Conditionals</h2>
+        <pre><code class="language-coffeescript">request() if active
+
+return unless options?</code></pre>
       </section>
       <section>
         <h2>Aliases / operators</h2>
@@ -327,6 +357,8 @@ greeting = switch day
 && -> and
 || -> or
 ? : ; -> if then else
+if ! -> unless
+(start < date && date < end) -> (start < date < end)
 this. -> @
 .prototype. -> ::
 
@@ -340,6 +372,10 @@ if params?.query? // soak operator
       <section class="yellow-bg">
         <p><img src="images/babel.svg" width="500" alt: Babel></p>
       </section>
+      <section class="yellow-bg">
+        <h1>We'll be compiling forever</h1>
+      </section>
+      <section><img src="images/opal-logo.png" width="210" alt: Opal></section>
       <section>
         <h1>End of life?</h1>
         <ul class="languages">
@@ -349,14 +385,15 @@ if params?.query? // soak operator
             <div class="subject js">JSNext</div>
           </li>
         </ul>
-        <p>I am not yet convinced</p>
       </section>
-      <section>
+      <section class="yellow-bg">
         <h1>Community</h1>
+        <h2>Syntax</h2>
+        <p>Features</p>
       </section>
       <section>
-        <h1>Thanks!</h1>
-        <p>@markbrown4</p>
+        <h1>Thanks</h1>
+        <p>@markbrown4</p><img src="images/i9dev-logo.svg" width="150">
       </section>
     </article>
     <script src="build/build.js"></script>
