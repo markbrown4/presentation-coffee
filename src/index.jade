@@ -87,31 +87,6 @@ html
           li.flex-1
             .year 2015
 
-      section
-        h1 Notable languages
-        ul.languages
-          li
-            .subject.logo Logo
-          li
-            .subject.html HTML
-            .subject.html HAML
-          li
-            .subject.css CSS
-            .subject.css SCSS
-          li
-            .subject.js JS
-            .subject.js Coffee
-          li
-            .subject.flash ActionScript
-          li
-            .subject.svg SVG
-          li
-            .subject.php PHP
-          li
-            .subject.ruby Ruby
-          li
-            .subject.python Python
-      
       section.text-center
         .pad-lg
           h1 Fun facts
@@ -215,14 +190,14 @@ html
       section
         h2 Rest params
         pre
-          code.language-javascript.
+          code.language-coffeescript.
             store.add = (category, items...)->
               items.forEach (item)->
                 store.aisle[category].push item
                 
 
       section
-        h2 Strings
+        h2 Template strings
         pre
           code.language-javascript.
             var hello = (name)=> `hello ${name}`
@@ -234,7 +209,7 @@ html
             
     
       section
-        h2 Strings
+        h2 Template strings
         pre
           code.language-javascript.
             hello = (name)=> "hello \#{name}"
@@ -244,7 +219,8 @@ html
               b
               c
               """
-      section
+
+      section.bg( style="background-image: url(images/sad.jpg)")
         h2
           | There's 
           strong a lot 
@@ -253,13 +229,13 @@ html
       section
         h2 No var
         pre
-          code.language-javascript.
+          code.language-coffeescript.
             myVariable = 'myValue'
             
-            // never miss a var
-            // hoisting
-            // private by default
-            // JSLint compliant
+            # never miss a var
+            # hoisting
+            # private by default
+            # JSLint compliant
 
       section
         h2 Significant whitespace
@@ -285,7 +261,7 @@ html
       section
         h2 Significant whitespace
         pre
-          code.language-javascript.
+          code.language-coffeescript.
             if url
               fetch url, (data)->
                 console.log data
@@ -305,11 +281,12 @@ html
       section
         h2 Simple loops
         pre
-          code.language-javascript.
+          code.language-coffeescript.
             words = 'Peter Piper picked a peck'.split ' '
             
             for word, index in words
               console.log "\#{index} \#{word}"
+            
 
       section
         h2 Simple loops
@@ -325,13 +302,15 @@ html
       section
         h2 Simple loops
         pre
-          code.language-javascript.
+          code.language-coffeescript.
             options =
               strict: true
               magic: 'string'
-
+            
+            
             for key, value of options
               console.log "\#{key} \#{value}"
+            
 
       section
         h2 Simple loops
@@ -347,11 +326,10 @@ html
               console.log(key + " " + value);
             }
 
-
       section
         h2 Automatic returns
         pre
-          code.language-javascript.
+          code.language-coffeescript.
             singHappy = ->
               if happy
                 clapAlong()
@@ -360,19 +338,40 @@ html
       section
         h2 Everything is an expression
         pre
-          code.language-javascript.
-            // each, map, filter
+          code.language-coffeescript.
+            # each
+            for word in words
+              console.log "\#{prefix} \#{word}"
+
+            # map
             prefixed = for word in words
               "\#{prefix} \#{word}"
 
-            greeting = switch day
-              when 'monday'
-                'piss off'
-              when 'sunday'
-                'how do you do'
-              else
-                'hello'
+            # map + filter
+            fWords = for word in words when word[0] == 'f'
+              "\#{prefix} \#{word}"
 
+      section
+        h2 Everything is an expression
+        pre
+          code.language-coffeescript.
+            greeting = switch day
+              when 'monday' then 'piss off'
+              when 'sunday' then 'how do you do'
+              else 'hello'
+
+            getGreeting = (day)->
+              switch day
+                when 'monday' then 'piss off'
+                when 'sunday' then 'how do you do'
+                else 'hello'
+      section
+        h2 Conditionals
+        pre
+          code.language-coffeescript.
+            request() if active
+
+            return unless options?
       section
         h2 Aliases / operators
         pre
@@ -381,7 +380,8 @@ html
             && -> and
             || -> or
             ? : ; -> if then else
-            start < date < end -> (start < date && date < end)
+            if ! -> unless
+            (start < date && date < end) -> (start < date < end)
             this. -> @
             .prototype. -> ::
 
@@ -394,6 +394,12 @@ html
       section.yellow-bg
         p
           img(src="images/babel.svg" width="500", alt: 'Babel')
+
+      section.yellow-bg
+        h1 We'll be compiling forever
+
+      section
+        img(src="images/opal-logo.png" width="210", alt: 'Opal')
 
       section
         h1 End of life?
